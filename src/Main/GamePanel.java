@@ -52,11 +52,20 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
     public void run(){
         init();
 
+        long start;
+        long elapsed;
+        long wait;
         // game loop
         while (running){
+            start=System.nanoTime();
+
             update();
             draw();
             drawToScreen();
+
+            elapsed=System.nanoTime()-start;
+
+            wait = targeTime-elapsed/1000000;
         }
     }
     private void update(){
