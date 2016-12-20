@@ -60,17 +60,20 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
         }
     }
     private void update(){
-        
+
     }
     private void draw() {
     }
 
     private void drawToScreen() {
+        Graphics g2=getGraphics();
+        g2.drawImage(image,0,0,null);
+        g2.dispose();
     }
 
     public void keyTyped(KeyEvent key){}
     public void keyPressed(KeyEvent key){}
     public void keyReleased(KeyEvent key){}
-
+//p1...13.00
 
 }
