@@ -1,7 +1,5 @@
 package Main;
 
-import com.sun.corba.se.pept.transport.ListenerThread;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
@@ -34,5 +32,16 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
         setFocusable(true);
         requestFocus();
     }
+    public void addNotify(){
+        super.addNotify();
+        if (thread==null){
+            thread=new Thread(this);
+            addKeyListener(this);
+            thread.start();
+
+        }
+    }
+
+
 
 }
