@@ -43,11 +43,29 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
         }
     }
     private void init(){
+     image =new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
+        g=(Graphics2D) g;
 
+        running = true;
     }
 
     public void run(){
         init();
+
+        // game loop
+        while (running){
+            update();
+            draw();
+            drawToScreen();
+        }
+    }
+    private void update(){
+        
+    }
+    private void draw() {
+    }
+
+    private void drawToScreen() {
     }
 
     public void keyTyped(KeyEvent key){}
