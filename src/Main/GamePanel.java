@@ -2,6 +2,7 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
@@ -41,7 +42,17 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
 
         }
     }
+    private void init(){
 
+    }
+
+    public void run(){
+        init();
+    }
+
+    public void keyTyped(KeyEvent key){}
+    public void keyPressed(KeyEvent key){}
+    public void keyReleased(KeyEvent key){}
 
 
 }
