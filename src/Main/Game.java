@@ -7,8 +7,11 @@ import javax.swing.*;
  */
 public class Game {
     public static void main(String[] args){
-        JFrame windows=new JFrame("Dragon Tale ");
-        windows.setContentPane(new GamePanel());
-        windows.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame window=new JFrame("Dragon Tale ");
+        window.setContentPane(new GamePanel());
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.pack();
+        window.setVisible(true);
     }
 }
