@@ -1,6 +1,8 @@
 package Main;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by Vika on 19.12.2016.
@@ -16,5 +18,15 @@ public class GamePanel extends JPanel {
     private boolean running;
     private int FSP=60;
     private long targeTime=1000/FSP;
+
+
+    // image
+    private BufferedImage image;
+    private Graphics2D g;
+
+    public GamePanel(){
+        super();
+        setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
+    }
 
 }
