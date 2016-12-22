@@ -105,6 +105,6 @@ public class GamePanel extends JPanel implements  Runnable,KeyListener{
     public void keyReleased(KeyEvent key){
         gsm.Released(key.getKeyCode());
     }
-//p1...13.00
+//p2 0.00
 
 }
