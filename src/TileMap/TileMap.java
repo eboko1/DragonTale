@@ -1,5 +1,8 @@
 package TileMap;
 
+import Main.GamePanel;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
 /**
@@ -32,17 +35,36 @@ public class TileMap {
     private Tile[][] tiles;
 
     // drawing
-    private int roeOffset;
+    private int rowOffset;
     private int colOffset;
     private int numRowsToDraw;
     private int numColsToDraw;
 
     public TileMap(int tileSize){
-        
-
+        this.tileSize=tileSize;
+        numRowsToDraw= GamePanel.HEIGHT/tileSize+2;
+        numColsToDraw=GamePanel.WIDTH/tileSize+2;
+        tween=0.07;
     }
 
+    public void loadTiles(String s){
+        try {
+            tileSet= ImageIO.read(getClass().getResourceAsStream(s));
+            numTilesAcross=tileSet.getWidth()/tileSize;
+            tiles=new Tile[2][numTilesAcross];
 
+            BufferedImage subImage;
+            for(int col=0;col<numTilesAcross;col++) {
+                subImage=tileSet.getSubimage(col*tileSize,0,tileSize,tileSize);
+                tiles[0][col]=new Tile (subImage,Tile.NORMAl);
+                subImage=tileSet.getSubimage(col*tileSize,tileSize,tileSize,tileSize);
+                tiles[1][col]=new Tile (subImage,Tile.BLOCKED)
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void loadMap(String s){}
 
 
 }
