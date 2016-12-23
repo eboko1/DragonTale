@@ -4,6 +4,9 @@ import Main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * Created by Vika on 23.12.2016.
@@ -58,13 +61,36 @@ public class TileMap {
                 subImage=tileSet.getSubimage(col*tileSize,0,tileSize,tileSize);
                 tiles[0][col]=new Tile (subImage,Tile.NORMAl);
                 subImage=tileSet.getSubimage(col*tileSize,tileSize,tileSize,tileSize);
-                tiles[1][col]=new Tile (subImage,Tile.BLOCKED)
+                tiles[1][col]=new Tile (subImage,Tile.BLOCKED);
             }
         } catch (Exception e){
             e.printStackTrace();
         }
     }
-    public void loadMap(String s){}
+    public void loadMap(String s){
+        try{
+            InputStream in =getClass().getResourceAsStream(s);
+            BufferedImage br=new BufferedReader(new InputStreamReader(in));
+
+            numCols=Integer.parseInt(br.readLine());
+            numRows=Integer.parseInt(br.readLine());
+            map = new int [numRows][numCols];
+            width = numCols*tileSize;
+            height=numRows*tileSize;
+
+            String delims = "\\s+";
+            for (int row=0;row<numRows;row++){
+                String line =br.readLine();
+                String [] tockens=line.split(delims);
+                for(int col=0;col<numCols;col++){
+                    map[row][col]=Integer.parseInt(tockens[col]);
+                }
+            }
+
+          } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
 }
