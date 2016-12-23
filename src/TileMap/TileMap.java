@@ -95,6 +95,10 @@ public class TileMap {
     public getWidth(){return width;}
     public getHeight(){return height;}
 
+    public int getType(int row, int col){
+        
+    }
+
     //p2 17.00
 
 }
