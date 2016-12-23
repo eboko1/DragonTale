@@ -11,11 +11,11 @@ public class Level1State extends GameState {
 
 
 
-     public Level1State(GameStateManager gsm){
+    public Level1State(GameStateManager gsm){
       this.gsm=gsm;
     }
     public void init(){
-        tileMap=new TileMap(30);
+        tileMap=new TileMap(3);
     }
     public void update(){}
     public void draw (Graphics2D g){}

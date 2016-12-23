@@ -22,7 +22,7 @@ public class TileMap {
     private double tween;
 
     // map
-    private int [][]map;
+    private int [][]  map;
     private int tileSize;
     private int numRows;
     private int numCols;
