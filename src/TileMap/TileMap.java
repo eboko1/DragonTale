@@ -96,9 +96,13 @@ public class TileMap {
     public getHeight(){return height;}
 
     public int getType(int row, int col){
-        
+        int rc =map[row][col];
+        int r = rc/numTilesAcross;
+        int c=rc%numTilesAcross;
+        return tiles[r][c].getType();
+
     }
 
-    //p2 17.00
+    //p2 19.00
 
 }
