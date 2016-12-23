@@ -67,30 +67,34 @@ public class TileMap {
             e.printStackTrace();
         }
     }
-    public void loadMap(String s){
-        try{
-            InputStream in =getClass().getResourceAsStream(s);
-            BufferedImage br=new BufferedReader(new InputStreamReader(in));
+    public void loadMap(String s) {
+        try {
+            InputStream in = getClass().getResourceAsStream(s);
+            BufferedImage br = new BufferedReader(new InputStreamReader(in));
 
-            numCols=Integer.parseInt(br.readLine());
-            numRows=Integer.parseInt(br.readLine());
-            map = new int [numRows][numCols];
-            width = numCols*tileSize;
-            height=numRows*tileSize;
+            numCols = Integer.parseInt(br.readLine());
+            numRows = Integer.parseInt(br.readLine());
+            map = new int[numRows][numCols];
+            width = numCols * tileSize;
+            height = numRows * tileSize;
 
             String delims = "\\s+";
-            for (int row=0;row<numRows;row++){
-                String line =br.readLine();
-                String [] tockens=line.split(delims);
-                for(int col=0;col<numCols;col++){
-                    map[row][col]=Integer.parseInt(tockens[col]);
+            for (int row = 0; row < numRows; row++) {
+                String line = br.readLine();
+                String[] tockens = line.split(delims);
+                for (int col = 0; col < numCols; col++) {
+                    map[row][col] = Integer.parseInt(tockens[col]);
                 }
             }
-
-          } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    public int getx(){return (int)x;}
+    public int gety(){return (int)y;}
+    public getWidth(){return width;}
+    public getHeight(){return height;}
 
+    //p2 17.00
 
 }
