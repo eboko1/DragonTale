@@ -100,6 +100,10 @@ public class TileMap {
         int r = rc/numTilesAcross;
         int c=rc%numTilesAcross;
         return tiles[r][c].getType();
+    }
+
+    public void setPosition(double x,double y){
+        this.x+=(x-this.x)*tween;
 
     }
 
