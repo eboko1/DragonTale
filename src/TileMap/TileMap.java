@@ -134,6 +134,7 @@ public class TileMap {
             for (int col=colOffset;col<colOffset+numColsToDraw;col++){
                 if (col>=numCols) break;
                 if (map [row][col]==0) continue;
+                int rc =map [row][col];
 
             }
 
