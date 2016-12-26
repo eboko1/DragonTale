@@ -95,13 +95,13 @@ public class TileMap {
     public int getTileSize(){return tileSize;}
     public int getx(){return (int)x;}
     public int gety(){return (int)y;}
-    public getWidth(){return width;}
-    public getHeight(){return height;}
+    //public getWidth(){return width;}
+    //public getHeight(){return height;}
 
     public int getType(int row, int col){
         int rc =map[row][col];
         int r = rc/numTilesAcross;
-        int c=rc%numTilesAcross;
+        int c = rc%numTilesAcross;
         return tiles[r][c].getType();
     }
 
