@@ -15,14 +15,18 @@ public class Level1State extends GameState {
     public Level1State(GameStateManager gsm){
       this.gsm=gsm;
     }
+
+
     public void init(){
         tileMap=new TileMap(30);
         tileMap.loadTiles("/Tilesets/grasstileset.gif");
         tileMap.loadMap("/Map/level1-1.map");
         tileMap.setPosition(0,0);
     }
-    public void update(){}
-    public void draw (Graphics2D g){
+
+   public void update(){}
+
+   public void draw (Graphics2D g){
         // draw screen
         g.setColor(Color.WHITE);
         g.fillRect(0,0, GamePanel.WIDTH,GamePanel.HEIGHT);

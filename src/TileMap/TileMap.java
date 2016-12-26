@@ -60,7 +60,7 @@ public class TileMap {
             BufferedImage subImage;
             for(int col=0;col<numTilesAcross;col++) {
                 subImage=tileSet.getSubimage(col*tileSize,0,tileSize,tileSize);
-                tiles[0][col]=new Tile (subImage,Tile.NORMAl);
+                tiles[0][col]=new Tile (subImage,Tile.NORMAL);
                 subImage=tileSet.getSubimage(col*tileSize,tileSize,tileSize,tileSize);
                 tiles[1][col]=new Tile (subImage,Tile.BLOCKED);
             }
@@ -71,7 +71,7 @@ public class TileMap {
     public void loadMap(String s) {
         try {
             InputStream in = getClass().getResourceAsStream(s);
-            BufferedImage br = new BufferedReader(new InputStreamReader(in));
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             numCols = Integer.parseInt(br.readLine());
             numRows = Integer.parseInt(br.readLine());
@@ -129,7 +129,7 @@ public class TileMap {
      }
     }
     public void draw(Graphics2D g){
-        for (int row =rowOffset;row<rowOffset+numTilesAcross;row++){
+        for (int row =rowOffset;row<rowOffset+numRowsToDraw;row++){
             if (row>=numRows)break;
             for (int col=colOffset;col<colOffset+numColsToDraw;col++){
                 if (col>=numCols) break;
@@ -145,6 +145,6 @@ public class TileMap {
 
 
     }
-    //p2 19.00
+    //p2 26.00
 
 }
