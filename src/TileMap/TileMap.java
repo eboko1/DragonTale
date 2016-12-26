@@ -116,22 +116,26 @@ public class TileMap {
     }
     private void fixBounds(){
     if (x<xmin){
-        x=xmin;
+    x=xmin;
     }
     if (y<ymin){
-        y=ymin;
+    y=ymin;
     }
     if (x>xmax){
-        x=xmax;
+    x=xmax;
     }
     if (y>ymax){
-        y=ymax;
-
+    y=ymax;
+     }
     }
     public void draw(Graphics2D g){
-        for (int row =){
+        for (int row =rowOffset;row<rowOffset+numTilesAcross;row++){
+            if (row>=numRows)break;
+            for (int col=colOffset;col<colOffset+numColsToDraw;col++){
+                if (col>=numCols) break;
+                if (map [row][col]==0) continue;
 
-        }
+            }
 
     }
 
