@@ -90,6 +90,8 @@ public class TileMap {
             e.printStackTrace();
         }
     }
+
+    public int getTileSize(){return tileSize;}
     public int getx(){return (int)x;}
     public int gety(){return (int)y;}
     public getWidth(){return width;}
