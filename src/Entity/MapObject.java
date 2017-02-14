@@ -69,7 +69,7 @@ public abstract class MapObject {
         tileMap = tm;
         tileSize = tm.getTileSize();
     }
-    
+
 
 
 
