@@ -28,7 +28,9 @@ import javax.imageio.ImageIO;
             }
         }
 
-         public void setPosition(double x,double y){
+
+
+    public void setPosition(double x,double y){
              this.x = (x*moveScale) % GamePanel.WIDTH;
              this.y = (y*moveScale) % GamePanel.HEIGHT;
          }
@@ -39,8 +41,8 @@ import javax.imageio.ImageIO;
          }
 
          public void update(){
-            x+=dx;  //x=x+dx;
-            y+=dy;  //y=y+dy;
+            x += dx;
+            y += dy;
          }
 
          public void draw(Graphics2D g){
@@ -51,8 +53,8 @@ import javax.imageio.ImageIO;
             // if(g==null){System.out.print("g NULL");
             //System.exit(0);
             //}
-
             g.drawImage(image,(int)x, (int) y, null);
+
             if (x<0){
                 g.drawImage(image,(int)x+ GamePanel.WIDTH,(int) y, null);
             }
