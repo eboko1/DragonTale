@@ -12,8 +12,10 @@ public class MenuState extends GameState {
 
     private Background bg;
 
-    private int currentChoice=0;
+    private int currentChoice = 0;
+
     private String[] option= {"Start","Help","Quit"};
+
     private Color titleColor;
     private Font titleFont;
 
