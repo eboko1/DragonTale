@@ -1,6 +1,7 @@
 package Entity;
 
 import TileMap.TileMap;
+import TileMap.*;
 import javafx.animation.Animation;
 
 import java.awt.*;
@@ -84,6 +85,38 @@ public abstract class MapObject {
         return  new Rectangle((int) x-cwidth, (int)y-cheight, cwidth, cheight);
     }
 
+    public void  calculateCorners (double x, double y){
+        int leftTile = (int)(x - cwidth / 2) / tileSize;
+        int rightTile = (int)(x + cwidth / 2-1) / tileSize;
+        int topTile =   (int)(y - cheight / 2) / tileSize;
+        int bottomTile = (int)(y - cheight / 2-1) / tileSize;
+
+        int tl = tileMap.getType(topTile, leftTile);
+        int tr = tileMap.getType(topTile, rightTile);
+        int bl = tileMap.getType(bottomTile, leftTile);
+        int br = tileMap.getType(bottomTile, rightTile);
+
+        boolean topLeft = tl == Tile.BLOCKED;
+        boolean topRight = tr == Tile.BLOCKED;
+        bottomLeft = bl == Tile.BLOCKED;
+        bottomRight = br == Tile.BLOCKED;
+        
+
+    }
+
+    public  void  checkTileMapCollision(){
+        currCol = (int)x/tileSize;
+        currRow = (int)y/tileSize;
+
+        xdest = x + dx;
+        ydest = y + dy;
+
+        xtemp = x;
+        ydest = y;
+
+        calculateCorners(x, ydest);
+
+    }
 
 
 
