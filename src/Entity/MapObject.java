@@ -3,6 +3,10 @@ package Entity;
 import TileMap.TileMap;
 import javafx.animation.Animation;
 
+import java.awt.*;
+import java.io.IOException;
+import java.nio.CharBuffer;
+
 /**
  * Created by Vika on 14.02.2017.
  */
@@ -70,6 +74,15 @@ public abstract class MapObject {
         tileSize = tm.getTileSize();
     }
 
+    public boolean intersects(MapObject o){
+     Rectangle r1 = getRectangle();
+     Rectangle r2 = o.getRectangle();
+     return  r1.intersects(r2);
+    }
+
+    public  Rectangle getRectangle(){
+        return  new Rectangle((int) x-cwidth, (int)y-cheight, cwidth, cheight);
+    }
 
 
 
