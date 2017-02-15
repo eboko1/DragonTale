@@ -68,6 +68,9 @@ public abstract class MapObject {
     protected double jumpStart;
     protected double stopJumpSpeed;
 
+    protected boolean topLeft;
+    protected  boolean topRight;
+
     //constructor
 
     public MapObject(TileMap tm){
@@ -96,8 +99,8 @@ public abstract class MapObject {
         int bl = tileMap.getType(bottomTile, leftTile);
         int br = tileMap.getType(bottomTile, rightTile);
 
-        boolean topLeft = tl == Tile.BLOCKED;
-        boolean topRight = tr == Tile.BLOCKED;
+        topLeft = tl == Tile.BLOCKED;
+        topRight = tr == Tile.BLOCKED;
         bottomLeft = bl == Tile.BLOCKED;
         bottomRight = br == Tile.BLOCKED;
         
@@ -116,9 +119,56 @@ public abstract class MapObject {
 
         calculateCorners(x, ydest);
 
+        if (dy < 0){
+            if (topLeft || topRight){
+                dy = 0;
+                ytemp = currRow * tileSize + cheight / 2;
+            }
+            else {
+                ytemp +=dy;
+            }
+        }
+        if (dy > 0){
+            if (bottomLeft || bottomRight){
+                dy = 0;
+                falling = false;
+                ytemp = (currRow + 1) * tileSize - cheight / 2;
+            }
+            else {
+                ytemp += dy;
+            }
+        }
+        calculateCorners(xdest, y);
+        if (dx < 0){
+            if (topLeft || bottomLeft){
+                dx = 0;
+                xtemp = currCol * tileSize + cwidth / 2;
+            }
+            else {
+                xtemp += dx;
+            }
+        }
+        if (dx > 0){
+            if (topRight || bottomRight){
+                dx = 0;
+                xtemp = (currCol + 1) * tileSize - cwidth / 2;
+            }
+        }
+        if (!falling){
+            calculateCorners(x, ydest + 1);
+            if (!bottomLeft && ! bottomRight){
+                falling = true;
+            }
+
+        }
     }
-
-
+    public  int getx(){return  (int)x;}
+    public  int gety(){return  (int)y;}
+    public  int getWidth(){return width;}
+    public  int getHeight(){return height;}
+    public  int getCWidth(){return cwidth;}
+    public  int getCHeight(){return cheight;}
+    
 
 
 
