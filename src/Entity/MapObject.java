@@ -168,8 +168,27 @@ public abstract class MapObject {
     public  int getHeight(){return height;}
     public  int getCWidth(){return cwidth;}
     public  int getCHeight(){return cheight;}
-    
 
+
+    public void setPosition(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+    public void setVector(double dx, double dy){
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public void setMapPosition(){
+        xmap = tileMap.getx();
+        ymap = tileMap.gety();
+    }
+
+    public void setLeft(boolean b){ left = b;}
+    public void setRight(boolean b){ right = b;}
+    public void setUp(boolean b){ up = b;}
+    public void setDown(boolean b){ down = b;}
+    public void setJumping(boolean b){ jumping = b;}
 
 
 
