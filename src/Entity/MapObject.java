@@ -1,5 +1,7 @@
 package Entity;
 
+import Main.Game;
+import Main.GamePanel;
 import TileMap.TileMap;
 import TileMap.*;
 import javafx.animation.Animation;
@@ -190,7 +192,10 @@ public abstract class MapObject {
     public void setDown(boolean b){ down = b;}
     public void setJumping(boolean b){ jumping = b;}
 
-
+    public boolean onScreen(){
+        return x + xmap + width < 0 || x + xmap - width > GamePanel.WIDTH ||
+                y + ymap + height < 0 || y + ymap - height < GamePanel.HEIGHT;
+    }
 
 
 
