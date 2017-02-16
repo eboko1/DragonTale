@@ -78,7 +78,7 @@ public abstract class MapObject {
     public MapObject(TileMap tm){
         tileMap = tm;
         tileSize = tm.getTileSize();
-    }
+    }  //constructor
 
     public boolean intersects(MapObject o){
      Rectangle r1 = getRectangle();
@@ -154,6 +154,9 @@ public abstract class MapObject {
             if (topRight || bottomRight){
                 dx = 0;
                 xtemp = (currCol + 1) * tileSize - cwidth / 2;
+            }
+            else {
+                xtemp += dx;
             }
         }
         if (!falling){
