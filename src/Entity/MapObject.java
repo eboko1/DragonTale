@@ -62,7 +62,7 @@ public abstract class MapObject {
     protected boolean falling;
 
     //moment attributes
-    protected double maveSpeed;
+    protected double moveSpeed;
     protected double maxSpeed;
     protected double stopSpeed;
     protected double fallSpeed;

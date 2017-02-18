@@ -2,6 +2,8 @@ package Entity;
 
 import TileMap.TileMap;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -36,6 +38,10 @@ public class Player extends  MapObject {
 
     //animation
     private ArrayList<BufferedImage[]> sprites;
+    private final int[] numFrames={
+        2, 8, 1, 2, 4, 2, 5
+
+    };
 
     // animations actions
     private static final int IDLE = 0;
@@ -49,6 +55,54 @@ public class Player extends  MapObject {
 
     public Player(TileMap tm) {
         super(tm);
+        width = 30;
+        height = 30;
+        cwidth = 20;
+        cheight = 20;
+
+        moveSpeed = 0.3;
+        maxSpeed = 1.6;
+        stopSpeed = 0.4;
+        fallSpeed = 0.15;
+        maxFallSpeed = 4.0;
+        jumpStart = -4.8;
+        stopJumpSpeed = 0.3;
+        facingRight = true;
+
+        health = maxHealth = 5;
+        fire = maxFire = 2500;
+
+        fireCost = 200;
+        fireBallDamage = 5;
+        //fireBalls = new ArrayList<FireBall>();
+        scrachDamage = 8;
+        scrachRange = 40;
+
+        // load sprites
+        try{
+            BufferedImage spritesheet = ImageIO.read(getClass().getResourceAsStream("/Resources/Sprites/Player/playersprites.gif")
+            );
+            for (int i =0; i<7; i++){
+                BufferedImage [] bi = new BufferedImage [numFrames[i]];
+
+                for (int j = 0; j < numFrames[i];j++){
+                    if ( i != 6){
+                        bi[j] = spritesheet.getSubimage(j*width,i*height,width,height);
+                    } else {
+                        bi[j] = spritesheet.getSubimage(j*width*2,i*height,width,height);
+
+                    }
+                }
+                sprites.add(bi);
+            }
+
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
