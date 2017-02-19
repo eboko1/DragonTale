@@ -1,14 +1,13 @@
 package Entity;
 
-import Main.Game;
+
 import Main.GamePanel;
 import TileMap.TileMap;
 import TileMap.*;
-import javafx.animation.Animation;
+
 
 import java.awt.*;
-import java.io.IOException;
-import java.nio.CharBuffer;
+
 
 /**
  * Created by Vika on 14.02.2017.

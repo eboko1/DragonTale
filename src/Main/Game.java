@@ -14,4 +14,4 @@ public class Game {
         window.pack();
         window.setVisible(true);
     }
-}// t4  m 0
+}// t4  m 18

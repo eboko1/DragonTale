@@ -19,7 +19,7 @@ import java.awt.image.BufferedImage;
             playedOnce = false;
         }
 
-        public void setFrames (BufferedImage[] frames){
+        public void setFrames(BufferedImage[] frames){
             this.frames = frames;
             currentFrame = 0;
             startTime = System.nanoTime();
@@ -29,7 +29,7 @@ import java.awt.image.BufferedImage;
         public void setDelay(long d){
             delay = d;
         }
-        public void setFrsme(int i){
+        public void setFrame(int i){
             currentFrame = 1;
         }
 
@@ -55,6 +55,7 @@ import java.awt.image.BufferedImage;
         public BufferedImage getImage(){
             return frames[currentFrame];
         }
+
         public boolean hasPlayedOnce(){
             return playedOnce;
         }
