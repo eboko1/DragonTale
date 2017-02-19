@@ -48,7 +48,7 @@ import java.awt.image.BufferedImage;
                 }
             }
         }
-        public int getFrames(){
+        public int getFrame(){
             return currentFrame;
         }
 

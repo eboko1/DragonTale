@@ -1,7 +1,7 @@
 package Entity;
 
 import TileMap.TileMap;
-import Entity.Animation;
+
 
 
 import javax.imageio.ImageIO;
@@ -143,6 +143,8 @@ public class Player extends  MapObject {
     public void setGliding(boolean b) {
         gliding = b;
     }
+
+    
 
     public void getNextPosition(){
         // movement
