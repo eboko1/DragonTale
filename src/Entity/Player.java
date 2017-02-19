@@ -144,7 +144,7 @@ public class Player extends  MapObject {
         gliding = b;
     }
 
-    
+
 
     public void getNextPosition(){
         // movement
@@ -153,18 +153,21 @@ public class Player extends  MapObject {
             if(dx < -maxSpeed){
                 dx = -maxSpeed;
             }
-        } if (right) {
+        }
+        else if (right) {
             dx += moveSpeed;
             if(dx > maxSpeed) {
                 dx = maxSpeed;
             }
-        } else {
+        }
+        else {
             if (dx > 0){
                 dx -= stopSpeed;
                 if (dx < 0){
                     dx = 0;
                 }
-            } else if (dx < 0){
+            }
+            else if (dx < 0){
                 dx += stopSpeed;
                 if (dx > 0){
                     dx = 0;
@@ -172,7 +175,7 @@ public class Player extends  MapObject {
             }
         }
         // cannot move while attacking, except in air
-       if ((currentAction == SCRATCHING || currentAction == FALLING ) && !(jumping || falling)){
+       if ((currentAction == SCRATCHING || currentAction == FIREBALL ) && !(jumping || falling)){
             dx = 0;
         }
         // jumping
@@ -180,12 +183,13 @@ public class Player extends  MapObject {
            dx = jumpStart;
            falling = true;
         }
+
         // falling
         if (falling){
-           if (dy > 0 && gliding) dy +=fallSpeed * 0.1;
+           if (dy > 0 && gliding) dy += fallSpeed * 0.1;
            else dy += fallSpeed;
             if (dy > 0) jumping = false;
-            if (dy < 0 && !jumping) dy +=stopJumpSpeed;
+            if (dy < 0 && !jumping) dy += stopJumpSpeed;
             if (dy > maxFallSpeed) dy = maxFallSpeed;
         }
 
@@ -205,16 +209,16 @@ public class Player extends  MapObject {
                 animation.setDelay(50);
                 width = 60;
             }
-
-        } else if (firing) {
+        }
+        else if (firing) {
             if (currentAction != FIREBALL) {
                 currentAction = FIREBALL;
                 animation.setFrames(sprites.get(FIREBALL));
                 animation.setDelay(100);
                 width = 30;
-
             }
-        } else if (dy > 0) {
+        }
+        else if (dy > 0) {
             if (gliding) {
                 if (currentAction != GLIDING) {
                     currentAction = GLIDING;
@@ -222,20 +226,23 @@ public class Player extends  MapObject {
                     animation.setDelay(100);
                     width = 30;
                 }
-            } else if (currentAction != FALLING) {
+            }
+            else if (currentAction != FALLING) {
                 currentAction = FALLING;
-                animation.setFrames(sprites.get(GLIDING));
+                animation.setFrames(sprites.get(FALLING));
                 animation.setDelay(100);
                 width = 30;
             }
-        } else if (dy < 0) {
+        }
+        else if (dy < 0) {
             if (currentAction != JUMPING) {
                 currentAction = JUMPING;
                 animation.setFrames(sprites.get(JUMPING));
                 animation.setDelay(-1);
                 width = 30;
             }
-        } else if (left || right) {
+        }
+        else if (left || right) {
             if (currentAction != WALKING) {
                 currentAction = WALKING;
                 animation.setFrames(sprites.get(WALKING));
@@ -243,7 +250,8 @@ public class Player extends  MapObject {
                 width = 30;
             }
 
-        } else {
+        }
+        else {
             if (currentAction != IDLE) {
                 currentAction = IDLE;
                 animation.setFrames(sprites.get(IDLE));
@@ -264,7 +272,7 @@ public class Player extends  MapObject {
         setMapPosition();
         // draw player
         if (flinching){
-            long elapsed = System.nanoTime() - flinchTime / 1000000;
+            long elapsed = System.nanoTime() - flinchTime / 100000;
             if(elapsed / 100 % 2 == 0){
                 return;
             }
@@ -274,7 +282,7 @@ public class Player extends  MapObject {
             g.drawImage(animation.getImage(),(int)(x + xmap - width / 2),(int)(y + xmap - health / 2),null);
 
         }else {
-            g.drawImage(animation.getImage(),(int)(x + xmap - width / 2 + width),(int)(y + xmap - health / 2),-width,height,null);
+            g.drawImage(animation.getImage(),(int)(x + xmap - width / 2 + width),(int)(y + xmap - health / 2), -width, height,null);
 
         }
 

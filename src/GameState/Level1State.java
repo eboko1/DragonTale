@@ -1,6 +1,7 @@
 package GameState;
 
 
+import Main.GamePanel;
 import TileMap.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -41,6 +42,7 @@ public class Level1State extends GameState {
 
    public void update(){
         player.update();
+        tileMap.setPosition(GamePanel.WIDTH / 2 - player.getx(), GamePanel.WIDTH / 2 - player.gety()  );
    }
 
    public void draw (Graphics2D g){
@@ -68,7 +70,15 @@ public class Level1State extends GameState {
         if (k == KeyEvent.VK_F) player.setFiring();
         if (k == KeyEvent.VK_S) player.setScratching();
     }
-    public void keyReleased(int k){}
+    public void keyReleased(int k){
+        if (k == KeyEvent.VK_LEFT) player.setLeft(false);
+        if (k == KeyEvent.VK_RIGHT) player.setRight(false);
+        if (k == KeyEvent.VK_UP) player.setUp(false);
+        if (k == KeyEvent.VK_DOWN) player.setDown(false);
+        if (k == KeyEvent.VK_SPACE) player.setJumping(false);
+        if (k == KeyEvent.VK_E) player.setGliding(false);
+
+    }
 
 
 
